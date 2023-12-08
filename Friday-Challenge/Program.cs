@@ -1,131 +1,107 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System;
-using System.ComponentModel;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿
+using Friday_Challenge.MyClasses;
 
-Console.WriteLine("Hello, World!");
-//QUESTION ONE
-//Given an integer, return an integer that is reverse ordering the numbers 
-// 500 = 5 
+bool exit = false;
 
-//int number = 12;
-Console.WriteLine("Reversing a number");
-int number = int.Parse(Console.ReadLine());
-int dNumber = 0;
-int rNumber = 0 ;
-
-dNumber = number % 10;
-rNumber = (number * 10) + dNumber;
-number = number / 10;
-
-for (int i = 0; i < number; i++)
-
-Console.WriteLine($"Reversed number is{rNumber}");
-
-//Write a method that accepts a string, and the program should capitalize the first letter of each word in the string then return the results string. 
-//e.g. hello there should be Hello There 
-// hi should be Hi 
-
-Console.WriteLine("Enter A string to convert to Capitalize first word");
-string str = Console.ReadLine();
-var word =   str.Split(' ');
-var cStr = "";
+do
 {
-    cStr += char.ToUpper(word[0]) + word.Substring(1) + ' ';
-}
-Console.WriteLine(cStr);
+    Console.WriteLine("");
+    Console.WriteLine("SELECT AN OPTION FOR THE FOLLOWING");
+    Console.WriteLine("1: REMOVE ARRAY SPACE");
+    Console.WriteLine("2: ADD A STUDENT");
+    Console.WriteLine("3: REMOVE A STUDENT");
+    Console.WriteLine("4: SEARCH FOR A STUDENT");
+    Console.WriteLine("5: FINDING ARRAY CHUNKS");
+    Console.WriteLine("6: CAPITALIZE FIRST LETTERS IN WORDS USING A PROGRAM");
+    Console.WriteLine("7: CAPITALIZE USING A METHOD");
+    Console.WriteLine("8: FIND THE MOST APPEARING CHARACTERS");
+    Console.WriteLine("9: COUNT VOWELS IN A WORD");
+    Console.WriteLine("10: REVERSE A NUMBER");
+    Console.WriteLine("11: TEST PALINDROME WORDS");
+    Console.WriteLine("q: QUIT");
+    Console.WriteLine("");
+    Console.WriteLine("OPTION:");
 
+    string option = Console.ReadLine();
 
-//Given an array and chunk size divide the array into subarrays where each subarray is of length is the chunk size. E.g. 
-//[1,2,3,3,4,5,6,7],3)  ===[ [ 1, 2, 3 ], [ 3, 4, 5 ], [ 6, 7 ] ] 
-//([1,2,3,5,6,7],1) ===[ [ 1 ], [ 2 ], [ 3 ], [ 5 ], [ 6 ], [ 7 ] ] 
-
-int[] source = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-int a = 0;
-int chunkSize = 3;
-int[][] result = source.GroupBy(s => a++ / chunkSize).Select(g => g.ToArray()).ToArray();
-
-
-
-Console.WriteLine(result[1].Length);
-
-
-//Write a C# program that prompts the user to
-//enter a string and counts the number of vowels
-//in the entered string. Vowels are the letters
-//'a', 'e', 'i', 'o', and 'u' (both uppercase and lowercase). 
-
-Console.WriteLine("enter a string");
-string inputstring = Console.ReadLine();
-int i, len, vowels, consonants;
-
-
-vowels = 0;
-consonants = 0;
-len = inputstring.Length;
-
-// Iterating the string from left to right
-for (i = 0; i < len; i++)
-{
-
-    // Check if the character is a vowel
-    if (inputstring[i] == 'a' || inputstring[i] == 'e' ||
-        inputstring[i] == 'i' || inputstring[i] == 'o' ||
-        inputstring[i] == 'u' || inputstring[i] == 'A' ||
-        inputstring[i] == 'E' || inputstring[i] == 'I' ||
-        inputstring[i] == 'O' || inputstring[i] == 'U')
+    switch (option.ToLower())
     {
-
-        // Increment the vowels
-        vowels++;
+        case "1":
+            Console.WriteLine("");
+            RemoveArraySpaces removeArraySpaces = new RemoveArraySpaces();
+            removeArraySpaces.RemoveArraySpace();
+            break;
+        case "2":
+            Console.WriteLine("");
+            Trainee trainee = new Trainee();
+            string student = Console.ReadLine();
+            trainee.addStudent(student);
+            break;
+        case "3":
+            Console.WriteLine("");
+            Trainee traineeRemove = new Trainee();
+            string student1 = Console.ReadLine();
+            traineeRemove.removeStudent(student1);
+            break;
+        case "4":
+            Console.WriteLine("");
+            Trainee traineeSearch = new Trainee();
+            string student2 = Console.ReadLine();
+            traineeSearch.SearchStudent(student2);
+            break;
+        case "5":
+            Console.WriteLine("");
+            ArrayChunks arrayChunks = new ArrayChunks();
+            int[] source = { 1, 2, 3,4,5,5,6 };
+            arrayChunks.ArrayChunk(source, 3);
+            break;
+        case "6":
+            Console.WriteLine("");
+            CapitalizeWordsProgram capitalizeWordsProgram = new CapitalizeWordsProgram();
+            capitalizeWordsProgram.CapitalizeWordsProg();
+            break;
+        case "7":
+            Console.WriteLine("");
+            Console.WriteLine("Enter a string to capitalize the first letter of each word:");
+            string inputString = Console.ReadLine();
+            string capitalizedString = CapitalizeWordsMethod.CapitalizeWords(inputString);
+            Console.WriteLine(capitalizedString);
+            break;
+        case "8":
+            Console.WriteLine("");
+            MostAppearingCharacter mostAppearingCharacter = new MostAppearingCharacter();
+            Console.WriteLine("Enter a string:");
+            string input = Console.ReadLine();
+            mostAppearingCharacter.MostAppearing(input);
+            break;
+        case "9":
+            Console.WriteLine("");
+            CountVowels countVowels = new CountVowels();
+            Console.WriteLine("enter a string");
+            string inputstring = Console.ReadLine();
+            countVowels.CountVowel(inputstring);
+            break;
+        case "10":
+            Console.WriteLine("");
+            ReverseNumber reverseNumber = new ReverseNumber();
+            
+            Console.WriteLine(reverseNumber.ReverseNumbers(500));
+            break;
+        case "11":
+            Console.WriteLine("");
+            Palidrome palidrome = new Palidrome();
+            Console.WriteLine("Enter a string:");
+            string inputStrng = Console.ReadLine();
+            palidrome.Palid(inputStrng);
+            break;
+        case ("q"):
+            exit = true;
+            break;
+        default:
+            Console.WriteLine("Invalid option. Please try again.");
+            break;
     }
 
-    // Check if the character is a alphabet
-    // other than vowels
-    else if ((inputstring[i] >= 'a' && inputstring[i] <= 'z') ||
-             (inputstring[i] >= 'A' && inputstring[i] <= 'Z'))
-    {
-
-        // Increment the consonants
-        consonants++;
-    }
-}
-
-// Display the count of vowels and consonant
-Console.WriteLine("count of vowel = " + vowels);
-Console.WriteLine("count of consonant = " + consonants);
-
-
-//write a program that can remove empty spaces in arrays e.g.[1, 2, , , 4] = [1, 2, 4]
-
-int[] spacedArray = new int[5];
-spacedArray[0] = 1;
-spacedArray[2] = 2;
-spacedArray[4] = 3;
-for (int i = 0; i < spacedArray.Length; i++)
-{
+} while (!exit);
     
-    Console.WriteLine($"{i} = {spacedArray[i]}");
-    
-}
 
-int[] newArr = new int[spacedArray.Length];
-int newSize = 0;
-
-for (int i = 0; i < spacedArray.Length; i++)
-    if (spacedArray[i] != 0)
-    {
-        newArr[newSize] = spacedArray[i];
-        newSize++;
-    }
-
-if (newSize > 0)
-    Array.Resize(ref newArr, newSize);
-    Console.WriteLine(newArr.Length);
-
-for (int i = 0; i < newArr.Length; i++)
-{
-
-    Console.WriteLine($"{i} = {newArr[i]}");
-
-}

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Friday-Challenge", "Friday-Challenge\Friday-Challenge.csproj", "{BEFB5102-32DB-4F57-AD52-C33D01EF817C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Friday-Challenge", "Friday-Challenge\Friday-Challenge.csproj", "{BEFB5102-32DB-4F57-AD52-C33D01EF817C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FridayChallengeTest", "FridayChallengeTest\FridayChallengeTest.csproj", "{8C63D01D-DBD1-4EFB-8E27-1FE41B6DBF14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BEFB5102-32DB-4F57-AD52-C33D01EF817C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEFB5102-32DB-4F57-AD52-C33D01EF817C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEFB5102-32DB-4F57-AD52-C33D01EF817C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C63D01D-DBD1-4EFB-8E27-1FE41B6DBF14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C63D01D-DBD1-4EFB-8E27-1FE41B6DBF14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C63D01D-DBD1-4EFB-8E27-1FE41B6DBF14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C63D01D-DBD1-4EFB-8E27-1FE41B6DBF14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
